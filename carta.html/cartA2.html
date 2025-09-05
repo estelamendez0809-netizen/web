@@ -1,0 +1,259 @@
+HTML
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Carta de Amor 💌</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      color: #333;
+      overflow: hidden;
+    }
+    .carta {
+      background: #fff;
+      padding: 30px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0px 4px 30px rgba(0,0,0,0.2);
+      max-width: 600px;
+      animation: fadeIn 2s ease;
+      position: relative;
+      z-index: 2;
+    }
+    h1 {
+      color: #e60073;
+      font-size: 2.5em;
+    }
+    .mensaje-personal {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 1.1em;
+      color: #555;
+      margin-top: 10px;
+      white-space: pre-wrap;
+      overflow: hidden;
+      border-right: .15em solid orange;
+      animation:
+        typing 3s steps(40, end),
+        blink-caret .75s step-end infinite;
+    }
+    .sobre-container {
+      position: relative;
+      display: inline-block;
+      margin-top: 30px;
+      cursor: pointer;
+    }
+    .sobre-text {
+      position: absolute;
+      top: 110%;
+      width: 100%;
+      text-align: center;
+      font-weight: bold;
+      color: #e60073;
+      font-size: 1.2em;
+      animation: blink 1.2s infinite;
+    }
+    @keyframes blink {
+      0%,50%,100% {opacity:1;}
+      25%,75% {opacity:0.3;}
+    }
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+    @keyframes blink-caret {
+      from, to { border-color: transparent }
+      50% { border-color: orange; }
+    }
+    .sobre {
+      width: 160px;
+      height: 160px;
+      background: linear-gradient(135deg, #ff4d6d, #ff99ac);
+      clip-path: polygon(50% 0%, 85% 20%, 100% 50%, 50% 100%, 0% 50%, 15% 20%);
+      animation: latido 1.5s infinite;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    @keyframes latido {
+      0%,100% {transform: scale(1);}
+      25%,75% {transform: scale(1.1);}
+      50% {transform: scale(1.2);}
+    }
+    .pregunta, .resultadoSi, .resultadoNo {
+      display: none;
+    }
+    .botones {
+      margin-top: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 1.2em;
+      border: none;
+      border-radius: 10px;
+      margin: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    #siBtn { background: #ff4d6d; color: white; }
+    #noBtn { background: #333; color: white; }
+    #retryBtn { background: #e60073; color: white; padding: 12px 25px; font-size:1.3em; border-radius:15px; }
+    button:hover { transform: scale(1.1); }
+    .imagen-romantica, .imagen-broma {
+      max-width: 100%;
+      margin-top: 20px;
+      border-radius: 15px;
+      animation: fadeIn 1.5s ease;
+    }
+    .gracias-text {
+      font-size: 3em;
+      color: #e60073;
+      font-weight: bold;
+      text-shadow: 3px 3px 15px rgba(230,0,115,0.7);
+      margin-bottom: 20px;
+      animation: aparecer 2s ease forwards;
+      text-align: center;
+    }
+    @keyframes aparecer {
+      0% { opacity: 0; transform: scale(0.5); }
+      50% { opacity: 1; transform: scale(1.2); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+    @keyframes fadeIn { from{opacity:0;} to{opacity:1;} }
+    .fuegos, .petalos {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 1;
+    }
+    .petalo, .corazon-flotante {
+      position: absolute;
+      bottom: -50px;
+      font-size: 24px;
+      animation: subir 5s linear forwards;
+    }
+    @keyframes explosion { from{transform:scale(0);opacity:1;} to{transform:scale(2);opacity:0;} }
+    @keyframes subir { from{transform:translateY(0) rotate(0);opacity:1;} to{transform:translateY(-110vh) rotate(360deg);opacity:0;} }
+  </style>
+</head>
+<body>
+  <div class="carta">
+    <h1 id="titulo">Para Jana ❤️</h1>
+    
+    <div class="mensaje-personal">
+      Hola Jana, ❤️
+      Han pasado casi tres años desde que te conozco, y cada día me doy cuenta de lo afortunado que soy de tenerte en mi vida. Contigo me siento seguro, tranquilo y auténtico; como si pudiera ser yo mismo sin miedo a nada.
+      Quiero que sepas que estoy muy agradecido por cada momento, cada conversación y cada sonrisa que hemos compartido. Jana, me gustas de una manera que no puedo ignorar… y te amo. Sí, te amo, y deseo que estés a mi lado, que podamos compartir más risas, sueños y momentos juntos.
+      Gracias por ser tú, por tu luz y tu cariño. No quiero dejar pasar ni un solo día sin decirte lo que siento, porque cada segundo contigo vale más que cualquier cosa.
+      Con todo mi corazón,
+    </div>
+
+    <div class="sobre-container" id="sobreContainer">
+      <div class="sobre"></div>
+      <div class="sobre-text">Haz clic aquí 💌</div>
+    </div>
+
+    <div class="pregunta" id="pregunta">
+      <h2>¿Quieres ser mi novia? 💖</h2>
+      <p class="extra">Hazme el hombre más feliz del mundo ❤️</p>
+      <div class="botones">
+        <button id="siBtn">Sí 💕</button>
+        <button id="noBtn">No 💔</button>
+      </div>
+    </div>
+
+    <div class="resultadoSi" id="resultadoSi">
+      <div class="gracias-text">¡Gracias por elegirme! Te amo 💖</div>
+      <img src="foto_si.png" alt="Nosotros" class="imagen-romantica"/>
+      <div class="fuegos"></div>
+      <div class="petalos"></div>
+      <audio id="musica" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
+    </div>
+
+    <div class="resultadoNo" id="resultadoNo">
+      <button id="retryBtn">Inténtalo de nuevo</button>
+      <img src="foto_no.png" alt="Intenta otra vez" class="imagen-broma"/>
+    </div>
+  </div>
+
+  <script>
+    const sobreContainer = document.getElementById("sobreContainer");
+    const pregunta = document.getElementById("pregunta");
+    const resultadoSi = document.getElementById("resultadoSi");
+    const resultadoNo = document.getElementById("resultadoNo");
+    const retryBtn = document.getElementById("retryBtn");
+    const mensajePersonal = document.querySelector(".mensaje-personal");
+    
+    // Ocultar el mensaje personal al hacer clic en el sobre
+    sobreContainer.addEventListener("click", () => {
+      sobreContainer.style.display = "none";
+      pregunta.style.display = "block";
+      mensajePersonal.style.display = "none"; // Oculta el mensaje
+    });
+
+    document.getElementById("siBtn").addEventListener("click", () => {
+      pregunta.style.display = "none";
+      resultadoSi.style.display = "block";
+      const musica = document.getElementById("musica");
+      musica.volume = 0.3;
+      musica.play();
+      lanzarFuegos();
+      lanzarPetalos();
+    });
+
+    document.getElementById("noBtn").addEventListener("click", () => {
+      pregunta.style.display = "none";
+      resultadoNo.style.display = "block";
+    });
+
+    retryBtn.addEventListener("click", () => {
+      resultadoNo.style.display = "none";
+      pregunta.style.display = "block";
+    });
+
+    function lanzarFuegos() {
+      const fuegos = document.querySelector(".fuegos");
+      for (let i = 0; i < 30; i++) {
+        const spark = document.createElement("div");
+        spark.className = "spark";
+        spark.style.left = Math.random()*100+"%";
+        spark.style.top = Math.random()*100+"%";
+        spark.style.background = `hsl(${Math.random()*360},100%,50%)`;
+        spark.style.width = spark.style.height = Math.random()*8+4+"px";
+        spark.style.position = "absolute";
+        spark.style.borderRadius = "50%";
+        spark.style.animation = `explosion 1s ease forwards`;
+        fuegos.appendChild(spark);
+        setTimeout(()=>spark.remove(),1000);
+      }
+    }
+
+    function lanzarPetalos() {
+      const petalos = document.querySelector(".petalos");
+      let interval = setInterval(()=>{
+        const elem = document.createElement("div");
+        elem.className = Math.random()>0.5?"petalo":"corazon-flotante";
+        elem.innerHTML = elem.className==="petalo"?"🌸":"❤️";
+        elem.style.left = Math.random()*100+"vw";
+        elem.style.fontSize = (Math.random()*20+20)+"px";
+        petalos.appendChild(elem);
+        setTimeout(()=>elem.remove(),5000);
+      },300);
+      setTimeout(()=>clearInterval(interval),6000);
+    }
+  </script>
+</body>
+</html>
